@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+        {% set user = app.user %}
+
+        User: {{ user.email }}
+        <br />
+        Verify: {{ user.isVerified is same as(true) ? 'Yes' : 'No' }}
+    {% endif %}
+
+{% endblock %}

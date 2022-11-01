@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+###> doctrine/doctrine-bundle ###
+  database_template_sf_6:
+    image: mariadb:10.6
+    container_name: database_template
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=password
+      - MYSQL_USER=user_sf_6
+      - MYSQL_DATABASE=template_sf_6
+    volumes:
+      - ~/apps/mariadb:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: pma_template_sf_6
+    links:
+      - "database_template_sf_6"
+    environment:
+      PMA_HOST: database_template
+      PMA_USER: root
+      PMA_PASSWORD: password
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+###< doctrine/doctrine-bundle ###
+
+volumes:
+###> doctrine/doctrine-bundle ###
+  db-data:
+###< doctrine/doctrine-bundle ###
