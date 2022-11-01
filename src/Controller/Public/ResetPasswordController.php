@@ -3,8 +3,8 @@
 namespace App\Controller\Public;
 
 use App\Entity\User;
-use App\Form\ChangePasswordFormType;
-use App\Form\ResetPasswordRequestFormType;
+use App\Form\Public\ChangePasswordFormType;
+use App\Form\Public\ResetPasswordRequestFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -65,7 +65,7 @@ class ResetPasswordController extends AbstractController
             $resetToken = $this->resetPasswordHelper->generateFakeResetToken();
         }
 
-        return $this->render('email/check_email.html.twig', [
+        return $this->render('public/reset_password/check_email.html.twig', [
             'resetToken' => $resetToken,
         ]);
     }

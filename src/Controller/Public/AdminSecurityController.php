@@ -24,7 +24,7 @@ class AdminSecurityController extends AbstractController
         return $this->render('public/login/admin_login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
-    #[Route(path: '/admin/logout', name: 'aadmin_logout')]
+    #[Route(path: '/admin/logout', name: 'admin_logout')]
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}App{% endblock %}</title>
+        <title>{% block title %}Administration{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,7 +12,7 @@
         {% endblock %}
     </head>
     <body>
-        {% include "partials/_menu.html.twig" %}
+        {% include "partials/_admin_menu.html.twig" %}
         {% block body %}{% endblock %}
     </body>
 </html>
